@@ -49,38 +49,38 @@ logger = logging.getLogger(__name__)
 
 import AttrDict
 
-def BertSquad(file="", mode='predict'):
+def BertSquad(file="", mode='predict', bert_model="bert-base-uncased"):
     parser = {}
 
-    parser["--bert_model"]= "bert-base-uncased"
-    parser["--output_dir"]=None
-    parser["--train_file"]= file
-    parser["--predict_file"]= file
-    parser["--max_seq_length"]=  384
-    parser["--doc_stride"]= 128
-    parser["--max_query_length"]= 64
-    parser["--do_train"]= mode == 'train'
-    parser["--do_predict"]= mode == 'predict'
-    parser["--train_batch_size"]=  32
-    parser["--predict_batch_size"]= 8
-    parser["--learning_rate"]= 5e-5
-    parser["--num_train_epochs"]= 3.0
-    parser["--warmup_proportion"]= 0.1
-    parser["--n_best_size"]= 20
-    parser["--max_answer_length"]= 30
-    parser["--verbose_logging"]= False
-    parser["--no_cuda"]=   False
-    parser['--seed']= 42
-    parser['--gradient_accumulation_steps']= 1
-    parser["--do_lower_case"]= ('uncased' in bert_model)
-    parser["--local_rank"]= -1
-    parser['--fp16']= False
-    parser['--overwrite_output_dir']= False
-    parser['--loss_scale']=0
-    parser['--version_2_with_negative']= False
-    parser['--null_score_diff_threshold']= 0.0
-    parser['--server_ip']= ''
-    parser['--server_port']= ''
+    parser["bert_model"]= bert_model
+    parser["output_dir"]=None
+    parser["train_file"]= file
+    parser["predict_file"]= file
+    parser["max_seq_length"]=  384
+    parser["doc_stride"]= 128
+    parser["max_query_length"]= 64
+    parser["do_train"]= mode == 'train'
+    parser["do_predict"]= mode == 'predict'
+    parser["train_batch_size"]=  32
+    parser["predict_batch_size"]= 8
+    parser["learning_rate"]= 5e-5
+    parser["num_train_epochs"]= 3.0
+    parser["warmup_proportion"]= 0.1
+    parser["n_best_size"]= 20
+    parser["max_answer_length"]= 30
+    parser["verbose_logging"]= False
+    parser["no_cuda"]=   False
+    parser['seed']= 42
+    parser['gradient_accumulation_steps']= 1
+    parser["do_lower_case"]= ('uncased' in bert_model)
+    parser["local_rank"]= -1
+    parser['fp16']= False
+    parser['overwrite_output_dir']= False
+    parser['loss_scale']=0
+    parser['version_2_with_negative']= False
+    parser['null_score_diff_threshold']= 0.0
+    parser['server_ip']= ''
+    parser['server_port']= ''
 
 
     args = AttrDict.AttrDict(parser)
