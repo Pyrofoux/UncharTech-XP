@@ -63,7 +63,7 @@ def BertGlue(task, bert_model="bert-base-uncased", mode = 'eval', dataPrefix = "
     parser["max_seq_length"]=128
     parser["do_train"]= mode == 'train'
     parser["do_eval"]= mode == 'eval'
-    parser["do_lower_case"]=False
+    parser["do_lower_case"]= ()"uncased" in bert_model)
     parser["train_batch_size"]=32
     parser["eval_batch_size"]=8
     parser["learning_rate"]=5e-5
