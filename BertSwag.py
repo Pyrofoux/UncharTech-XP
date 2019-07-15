@@ -250,7 +250,7 @@ def BertSwag(mode = 'eval', bert_model = "bert-base-uncased", data_dir = './SWAG
     parser["bert_model"]=bert_model,
     parser["output_dir"]=None,
     parser["max_seq_length"]=128,
-    parser["do_train"] = (mode = 'train')
+    parser["do_train"] = (mode == 'train')
     parser["do_eval",] = (mode == 'eval')
     parser["do_lower_case"] = ('uncased' in bert_model)
     parser["train_batch_size"]=32,
