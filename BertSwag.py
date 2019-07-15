@@ -246,24 +246,24 @@ def BertSwag(mode = 'eval', bert_model = "bert-base-uncased", data_dir = './SWAG
 
     parser = {}
 
-    parser["--data_dir"]=data_dir,
-    parser["--bert_model"]=bert_model,
-    parser["--output_dir"]=None,
-    parser["--max_seq_length"]=128,
-    parser["--do_train"] = (mode = 'train')
-    parser["--do_eval",] = (mode == 'eval')
-    parser["--do_lower_case"] = ('uncased' in bert_model)
-    parser["--train_batch_size"]=32,
-    parser["--eval_batch_size"]=8,
-    parser["--learning_rate"]=5e-5,
-    parser["--num_train_epochs"]=3.0,
-    parser["--warmup_proportion"]=0.1,
-    parser["--no_cuda"] = False
-    parser["--local_rank"] = -1
-    parser['--seed'] = 42
-    parser['--gradient_accumulation_steps')
-    parser['--fp16'] = False
-    parser['--loss_scale'] = 0
+    parser["data_dir"]=data_dir,
+    parser["bert_model"]=bert_model,
+    parser["output_dir"]=None,
+    parser["max_seq_length"]=128,
+    parser["do_train"] = (mode = 'train')
+    parser["do_eval",] = (mode == 'eval')
+    parser["do_lower_case"] = ('uncased' in bert_model)
+    parser["train_batch_size"]=32,
+    parser["eval_batch_size"]=8,
+    parser["learning_rate"]=5e-5,
+    parser["num_train_epochs"]=3.0,
+    parser["warmup_proportion"]=0.1,
+    parser["no_cuda"] = False
+    parser["local_rank"] = -1
+    parser['seed'] = 42
+    parser['gradient_accumulation_steps')
+    parser['fp16'] = False
+    parser['loss_scale'] = 0
 
     args = AttrDict.AttrDict(parser)
 
