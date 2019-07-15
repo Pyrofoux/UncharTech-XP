@@ -49,11 +49,11 @@ logger = logging.getLogger(__name__)
 
 import AttrDict
 
-def BertSquad(file="", mode='predict', bert_model="bert-base-uncased"):
+def BertSquad(file="", mode='predict', bert_model="bert-base-uncased", output='./output'):
     parser = {}
 
     parser["bert_model"]= bert_model
-    parser["output_dir"]=None
+    parser["output_dir"]= output
     parser["train_file"]= file
     parser["predict_file"]= file
     parser["max_seq_length"]=  384
@@ -351,6 +351,3 @@ def BertSquad(file="", mode='predict', bert_model="bert-base-uncased"):
                           output_nbest_file, output_null_log_odds_file, args.verbose_logging,
                           args.version_2_with_negative, args.null_score_diff_threshold)
 
-
-if __name__ == "__main__":
-    main()
